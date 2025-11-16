@@ -17,12 +17,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install Dependencies
-        run: |
-          npm install
-          npm install -g vite   # FIX: add global vite
+        run: npm install
 
       - name: Build Vite Project
         run: npm run build

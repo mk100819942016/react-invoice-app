@@ -20,7 +20,9 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+          npm install
+          npm install -g vite   # FIX: add global vite
 
       - name: Build Vite Project
         run: npm run build

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
                     token: jwtToken
                 };
 
-    navigate("/home?id=10", { state: userInfo });
+    navigate("/home");
   };
 
   // Clear data when logout

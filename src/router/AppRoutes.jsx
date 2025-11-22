@@ -5,21 +5,25 @@ import InvoiceList from "../pages/Invoice/InvoiceMUIGrid";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import NotFound from "../pages/NotFound";
 import ProtectedRoute from "./ProtectedRoute";
+import MainLayout from "../layouts/MainLayout";
 function AppRoutes() {
   return (
       <Routes>
         {/* Default Route */}
-        <Route path="/" element={<Login />} />
-        <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/invoice/list" element={<ProtectedRoute><InvoiceList /></ProtectedRoute>} />
-        <Route path="/dashboard" element={ 
-            <ProtectedRoute>
-                <Dashboard />
-                </ProtectedRoute>
-            } />
+<Route path="/" element={<Login />} />
+        <Route element={<MainLayout />}>
+          
+          <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/invoice/list" element={<ProtectedRoute><InvoiceList /></ProtectedRoute>} />
+          <Route path="/dashboard" element={ 
+              <ProtectedRoute>
+                  <Dashboard />
+                  </ProtectedRoute>
+              } />
 
-        {/* 404 Page */}
-        <Route path="*" element={<ProtectedRoute><NotFound /></ProtectedRoute>} />
+          {/* 404 Page */}
+          <Route path="*" element={<ProtectedRoute><NotFound /></ProtectedRoute>} />
+        </Route>
       </Routes>
   );
 }
